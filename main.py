@@ -15,5 +15,8 @@ def main():
     
     # check event list at each interval
     for event in pygame.event.get():
-      if event.type == pygame.QUIT:
+      if event.type == QUIT:  # should quit be capitalized??
         run = False
+  quit()
+
+main()
