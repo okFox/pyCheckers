@@ -1,5 +1,5 @@
 import pygame
-from checkers.constants import (WIDTH, HEIGHT)
+from checkers.constants import WIDTH, HEIGHT
 
 FPS = 60
 WIN = pygame.display.set_mode((WIDTH, HEIGHT))
@@ -15,8 +15,12 @@ def main():
     
     # check event list at each interval
     for event in pygame.event.get():
-      if event.type == quit:  # should quit be capitalized??
+      if event.type == pygame.QUIT:  # should quit be capitalized??
         run = False
+
+      if event.type == pygame.MOUSEBUTTONDOWN:
+        pass
+
   quit()
 
 main()
