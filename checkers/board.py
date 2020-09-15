@@ -1,5 +1,21 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 import pygame
-from .constants import BLACK # this is a relative import. ie. in the same package
+
+# this is a relative import. ie. in the same package
+from .constants import BLACK, ROWS, RED, SQUARE_SIZE
 
 class Board:
   def __init__(self):
@@ -11,3 +27,6 @@ class Board:
 # win stands for window
   def draw_cubes(self, win):
     win.fill(BLACK)
+    for row in range(ROWS):
+      for col in range(row % 2, ROWS): # the modulo allows for starting red on every other row
+        pygame.draw.rect(win, RED, (row*SQUARE_SIZE, col*SQUARE_SIZE, SQUARE_SIZE, SQUARE_SIZE)) # (left, top, width, height)
