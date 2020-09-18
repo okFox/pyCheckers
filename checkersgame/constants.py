@@ -2,7 +2,7 @@ import pygame
 
 WIDTH = 800
 HEIGHT = 800
-ROLS, COLS = 8, 8
+ROWS, COLS = 8, 8
 SQUARE_SIZE = WIDTH//COLS
 
 
