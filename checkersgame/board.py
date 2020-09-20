@@ -19,7 +19,7 @@ class Board:
         for row in range(ROWS):
             # the modulo allows for starting red on e/o row
             for col in range(row % 2, COLS, 2):
-                pygame.draw.rect(win, RED, (row*SQUARE_SIZE, col*SQUARE_SIZE, SQUARE_SIZE, SQUARE_SIZE))
+                pygame.draw.rect(win, RED, (row * SQUARE_SIZE, col * SQUARE_SIZE, SQUARE_SIZE, SQUARE_SIZE))
                 # (left, top, width, height)
 
     def create_board(self):
