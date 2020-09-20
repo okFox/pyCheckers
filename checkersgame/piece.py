@@ -1,7 +1,11 @@
-from .constants import RED, WHITE
+from .constants import RED, WHITE, SQUARE_SIZE, GREY
+import pygame
 
 
 class Piece:
+    PADDING = 10
+    OUTLINE = 2
+
     def __init__(self, row, col, color):
         self.row = row
         self.col = col
@@ -12,3 +16,22 @@ class Piece:
             self.direction = -1
         else:
             self.direction = 1
+
+        self.x = 0
+        self.y = 0
+
+    def calc_pos(self):
+        # a circular piece would need to know //2 of square size to be placed in center
+        self.x = SQUARE_SIZE * self.col + SQUARE_SIZE // 2
+        self.y = SQUARE_SIZE * self.row + SQUARE_SIZE // 2
+
+    def make_king(self):
+        self.king = True
+
+    def draw(self, win):
+        radius = SQUARE_SIZE // 2 - self.PADDING
+        pygame.draw.circle(win, GREY, (self.x, self.y), radius)
+        pygame.draw.circle(win, self.color, (self.x, self.y), radius + self.OUTLINE)
+
+    def __repr__(self):  # output of repr must be str
+        return str(self.color)
