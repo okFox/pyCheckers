@@ -3,7 +3,7 @@ import pygame
 
 
 class Piece:
-    PADDING = 10
+    PADDING = 15
     OUTLINE = 2
 
     def __init__(self, row, col, color):
@@ -11,14 +11,15 @@ class Piece:
         self.col = col
         self.color = color
         self.king = False
-
-        if self.color == RED:
-            self.direction = -1
-        else:
-            self.direction = 1
-
         self.x = 0
         self.y = 0
+        self.calc_pos()
+
+#        if self.color == RED:
+#            self.direction = -1
+#        else:
+#            self.direction = 1
+
 
     def calc_pos(self):
         # a circular piece would need to know //2 of square size to be placed in center
@@ -30,8 +31,8 @@ class Piece:
 
     def draw(self, win):
         radius = SQUARE_SIZE // 2 - self.PADDING
-        pygame.draw.circle(win, GREY, (self.x, self.y), radius)
-        pygame.draw.circle(win, self.color, (self.x, self.y), radius + self.OUTLINE)
+        pygame.draw.circle(win, GREY, (self.x, self.y), radius + self.OUTLINE)
+        pygame.draw.circle(win, self.color, (self.x, self.y), radius)
 
     def __repr__(self):  # output of repr must be str
         return str(self.color)
