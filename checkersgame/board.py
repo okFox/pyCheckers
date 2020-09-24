@@ -2,6 +2,7 @@ import pygame
 
 # this is a relative import. ie. in the same package
 from .constants import BLACK, ROWS, RED, SQUARE_SIZE, COLS, WHITE
+from .piece import Piece
 
 
 class Board:
@@ -33,3 +34,13 @@ class Board:
                         self.board[row].append(Piece(row, col, RED))
                     else:
                         self.board[row].append(0)    
+                else:
+                    self.board[row].append(0)
+
+    def draw(self, win):
+        self.draw_squares(win)
+        for row in range(ROWS):
+            for col in range(COLS):
+                piece = self.board[row][col]
+                if piece != 0:
+                    piece.draw(win)

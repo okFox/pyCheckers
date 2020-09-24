@@ -3,7 +3,7 @@ import pygame
 
 
 class Piece:
-    PADDING = 10
+    PADDING = 15
     OUTLINE = 2
 
     def __init__(self, row, col, color):
@@ -30,8 +30,8 @@ class Piece:
 
     def draw(self, win):
         radius = SQUARE_SIZE // 2 - self.PADDING
-        pygame.draw.circle(win, GREY, (self.x, self.y), radius)
-        pygame.draw.circle(win, self.color, (self.x, self.y), radius + self.OUTLINE)
+        pygame.draw.circle(win, GREY, (self.x, self.y), radius + self.OUTLINE)
+        pygame.draw.circle(win, self.color, (self.x, self.y), radius)
 
     def __repr__(self):  # output of repr must be str
         return str(self.color)
