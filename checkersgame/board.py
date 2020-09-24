@@ -11,7 +11,7 @@ class Board:
         # 12 pieces/player to be decremented
         self.red_kings = self.white_kings = 0
         self.red_left = self.white_left = 12
-        # self.create_board()
+        self.create_board()
 
 # win stands for window
     def draw_squares(self, win):

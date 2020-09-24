@@ -17,15 +17,16 @@ def main():
     while run:
         clock.tick(FPS)
     # check event list at each interval
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:  # should quit be capitalized??
-            run = False
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                run = False
 
-        if event.type == pygame.MOUSEBUTTONDOWN:
-            pass
-    board.draw_squares(WIN)
-    pygame.display.update()
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                pass
 
+        board.draw_squares(WIN)
+        pygame.display.update()
+        
     pygame.quit()
 
 
